@@ -7,14 +7,15 @@ from flask import Flask, render_template
 application = Flask(__name__)
 
 
-@application.route('/')
-# @application.route('/test', methods=['GET'])
-# def default_page():
-#     message = {
-#         'status': 'Flask up!'
-#     }
-#     return application.make_response((json.dumps(message), requests.codes.ok))
-#
+@application.route('/', methods=['GET'])
+@application.route('/test', methods=['GET'])
+def test_page():
+    message = {
+        'status': 'Flask up!'
+    }
+    return application.make_response((json.dumps(message), requests.codes.ok))
+
+
 @application.route('/health_check', methods=['GET'])
 def default_page():
     message = {
