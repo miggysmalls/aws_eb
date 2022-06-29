@@ -11,7 +11,19 @@ application = Flask(__name__)
 @application.route('/test', methods=['GET'])
 def test_page():
     message = {
-        'status': 'Flask up!'
+        'status': 'Flask up!',
+        'pass': 1,
+        'fail': 0,
+        'testCaseSummaryList': [
+            {
+                'some key1': 'some value',
+                'status': 'key1 status'
+            },
+            {
+                'some key2': 'some value',
+                'status': 'key2 status'
+            }
+        ]
     }
     return application.make_response((json.dumps(message), requests.codes.ok))
 
